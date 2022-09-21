@@ -1,0 +1,68 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.App, .input-area {
+  display: flex;
+  align-items: center;
+}
+
+.App {
+  flex-direction: column;
+}
+
+.input-area {
+  margin: 20px 0;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  background-color: #242424;
+}
+
+input {
+  all: unset;
+  caret-color: transparent;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-rows: calc(1fr - 2px);
+  gap: 5px;
+}
+
+.input-letter, td {
+  width: 25px;
+  height: 25px;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 3px solid #888;
+  border-radius: 3px;
+}
+
+.input-letter, button, td {
+  text-transform: uppercase;
+}
+
+.input-letter:focus {
+  border: 3px solid red;
+  transform: translateY(-1px);
+}
+
+.input-button {
+  margin: 0 0 0 10px;
+}
+
+.help-button {
+  margin: 15px 0;
+}
+
+.bull {
+  background-color: greenyellow;
+}
+
+.cow {
+  background-color: lightcoral;
+}
