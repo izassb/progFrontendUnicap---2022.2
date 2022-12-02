@@ -91,47 +91,49 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Jogo da Senha</h1>
-      {error && <div>{`Ocorreu um erro ao executar o fetch dos dados - ${error}`}</div>}
-      <button onClick={fetchRandomWord}>Nova Palavra</button>
-      {data && (
-        <div className="input-area">
-          <InputGrid letters={data.word.split("")} />
-          <button onClick={tryGuess} className="input-button">
-            <FontAwesomeIcon icon={faCheck} />
-          </button>
-        </div>
-      )}
-      {tries.length > 0 && (
-        <div>
-          <h3>Tentativas</h3>
-          <table>
-            <tbody>
-              {tries.map((currentTry, index) => {
-                return (
-                  <tr key={index} className="row">
-                    {currentTry.map((letter, index) => {
-                      return (
-                        <td key={index} className="cell">
-                          {letter}
-                        </td>
-                      )
-                    })}
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
-          <button className="help-button" onClick={() => {
-            alert(
-              "Você deve descobrir qual a palavra secreta na base da tentativa e erro.\n\nCélulas verdes significam que a letra correta está na posição correta.\nAs vermelhas significam que, apesar da palavra possuir tal letra, ela não se encontra na posição correta.\nPor fim, as células cinzas significam que esta letra não está na palavra secreta."
-            )
-          }}>
-            <FontAwesomeIcon icon={faCircleQuestion} />
-          </button>
-        </div>
-      )}
+    <div className="Container">
+      <div className="App">
+        <h1>Jogo da Senha</h1>
+        {error && <div>{`Ocorreu um erro ao executar o fetch dos dados - ${error}`}</div>}
+        <button onClick={fetchRandomWord}>Nova Palavra</button>
+        {data && (
+          <div className="input-area">
+            <InputGrid letters={data.word.split("")} />
+            <button onClick={tryGuess} className="input-button">
+              <FontAwesomeIcon icon={faCheck} />
+            </button>
+          </div>
+        )}
+        {tries.length > 0 && (
+          <div>
+            <h3>Tentativas</h3>
+            <table>
+              <tbody>
+                {tries.map((currentTry, index) => {
+                  return (
+                    <tr key={index} className="row">
+                      {currentTry.map((letter, index) => {
+                        return (
+                          <td key={index} className="cell">
+                            {letter}
+                          </td>
+                        )
+                      })}
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+            <button className="help-button" onClick={() => {
+              alert(
+                "Você deve descobrir qual a palavra secreta na base da tentativa e erro.\n\nCélulas verdes significam que a letra correta está na posição correta.\nAs vermelhas significam que, apesar da palavra possuir tal letra, ela não se encontra na posição correta.\nPor fim, as células cinzas significam que esta letra não está na palavra secreta."
+              )
+            }}>
+              <FontAwesomeIcon icon={faCircleQuestion} />
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
